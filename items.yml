@@ -1,0 +1,654 @@
+--- !Item
+damage: 100
+strength: 10
+name: Abyssal Blade
+...
+--- !Item
+strength: 10
+agility: 10
+intelligence: 10
+health: 200
+mana: 150
+name: Aghanim's Scepter
+...
+--- !Item
+mana: 250
+movement_speed: 55
+name: Arcane Boots
+...
+--- !Item
+armor: 5
+attack_speed: 15
+damage: 9
+hp_regen: 7
+name: Armlet of Mordiggian
+...
+--- !Item
+bonus_attack_speed_aura: 20
+bonus_armor_aura: 5
+armor: 10
+attack_speed: 35
+name: Assault Cuirass
+...
+--- !Item
+agility: 6
+name: Band of Elvenskin
+...
+--- !Item
+damage: 65
+hp_regen: 6
+mana_regen: 1.5
+name: Battle Fury
+...
+--- !Item
+strength: 6
+name: Belt of Strength
+...
+--- !Item
+damage: 24
+strength: 10
+name: Black King Bar
+...
+--- !Item
+armor: 6
+damage: 22
+intelligence: 10
+name: Blade Mail
+...
+--- !Item
+agility: 10
+name: Blade of Alacrity
+...
+--- !Item
+damage: 9
+name: Blades of Attack
+...
+--- !Item
+hp_regen: 9
+health: 500
+mana: 400
+mana_regen: 2.0
+mana_regen_raw: 8
+name: Bloodstone
+...
+--- !Item
+movement_speed: 50
+name: Boots of Speed
+...
+--- !Item
+movement_speed: 100
+name: Boots of Travel
+...
+--- !Item
+agility: 3
+damage: 3
+intelligence: 3
+strength: 6
+name: Bracer
+...
+--- !Item
+damage: 18
+name: Broadsword
+...
+--- !Item
+strength: 2
+agility: 2
+intelligence: 2
+armor: 5
+name: Buckler
+...
+--- !Item
+agility: 30
+attack_speed: 30
+damage: 30
+evasion: 0.35
+name: Butterfly
+...
+--- !Item
+armor: 5
+name: Chainmail
+...
+--- !Item
+strength: 2
+agility: 2
+intelligence: 2
+name: Circlet
+...
+--- !Item
+damage: 21
+name: Claymore
+...
+--- !Item
+spell_resistance: 0.15
+name: Cloak
+...
+--- !Item
+strength: 2
+agility: 2
+intelligence: 2
+armor: 5
+hp_regen: 6
+health: 250
+name: Crimson Guard
+...
+--- !Item
+damage: 30
+name: Crystalys
+...
+--- !Item
+damage: 81
+name: Daedalus
+...
+--- !Item
+strength: 3
+agility: 3
+damage: 9
+intelligence: 19
+name: Dagon (level 2)
+...
+--- !Item
+strength: 3
+agility: 3
+damage: 9
+intelligence: 22
+name: Dagon (level 3)
+...
+--- !Item
+strength: 3
+agility: 3
+damage: 9
+intelligence: 25
+name: Dagon (level 4)
+...
+--- !Item
+strength: 3
+agility: 3
+damage: 9
+intelligence: 28
+name: Dagon (level 5)
+...
+--- !Item
+strength: 3
+agility: 3
+intelligence: 16
+damage: 9
+name: Dagon
+...
+--- !Item
+damage: 46
+name: Demon Edge
+...
+--- !Item
+damage: 60
+name: Desolator
+...
+--- !Item
+agility: 35
+intelligence: 10
+name: Diffusal Blade (level 2)
+...
+--- !Item
+agility: 20
+intelligence: 6
+name: Diffusal Blade
+...
+--- !Item
+damage: 300
+name: Divine Rapier
+...
+--- !Item
+bonus_attack_speed_aura: 5
+bonus_movement_speed_aura: 0.05
+strength: 9
+agility: 9
+intelligence: 9
+damage: 3
+name: Drum of Endurance
+...
+--- !Item
+agility: 25
+name: Eaglesong
+...
+--- !Item
+mana: 250
+name: Energy Booster
+...
+--- !Item
+agility: 40
+intelligence: 10
+strength: 10
+name: Ethereal Blade
+...
+--- !Item
+intelligence: 10
+mana_regen: 1.5
+movement_speed: 40
+name: Eul's Scepter of Divinity
+...
+--- !Item
+strength: 25
+agility: 25
+intelligence: 25
+health: 250
+mana: 250
+name: Eye of Skadi
+...
+--- !Item
+hp_regen: 3
+intelligence: 10
+name: Force Staff
+...
+--- !Item
+strength: 3
+name: Gauntlets of Strength
+...
+--- !Item
+strength: 7
+agility: 7
+intelligence: 7
+name: Ghost Scepter
+...
+--- !Item
+attack_speed: 15
+name: Gloves of Haste
+...
+--- !Item
+attack_speed: 30
+name: Hand of Midas
+...
+--- !Item
+strength: 2
+agility: 2
+intelligence: 2
+bonus_hp_regen_aura: 3
+name: Headdress
+...
+--- !Item
+hp_regen: 0.02
+health: 300
+strength: 40
+name: Heart of Tarrasque
+...
+--- !Item
+damage: 25
+evasion: 0.25
+strength: 20
+name: Heaven's Halberd
+...
+--- !Item
+armor: 5
+hp_regen: 3
+name: Helm of Iron Will
+...
+--- !Item
+armor: 5
+damage: 20
+hp_regen: 3
+lifesteal: 0.15
+name: Helm of the Dominator
+...
+--- !Item
+hp_regen: 9
+spell_resistance: 0.3
+name: Hood of Defiance
+...
+--- !Item
+attack_speed: 55
+name: Hyperstone
+...
+--- !Item
+strength: 1
+agility: 1
+intelligence: 1
+name: Iron Branch
+...
+--- !Item
+damage: 21
+name: Javelin
+...
+--- !Item
+strength: 15
+agility: 15
+intelligence: 15
+damage: 10
+hp_regen: 6
+mana_regen: 1.5
+name: Linken's Sphere
+...
+--- !Item
+attack_speed: 25
+damage: 24
+name: Maelstrom
+...
+--- !Item
+strength: 3
+agility: 3
+intelligence: 3
+name: Magic Wand
+...
+--- !Item
+agility: 26
+attack_speed: 15
+intelligence: 10
+movement_speed_multiplier: 0.1
+strength: 10
+name: Manta Style
+...
+--- !Item
+intelligence: 3
+name: Mantle of Intelligence
+...
+--- !Item 
+lifesteal: 0.2
+name: Mask of Madness
+...
+--- !Item
+armor: 6
+mana_regen: 0.5
+name: Medallion of Courage
+...
+--- !Item
+strength: 5
+agility: 5
+intelligence: 5
+armor: 5
+bonus_hp_regen_aura: 4
+name: Mekansm
+...
+--- !Item
+damage: 24
+name: Mithril Hammer
+...
+--- !Item
+attack_speed: 80
+damage: 24
+name: Mjollnir
+...
+--- !Item
+attack_speed: 15
+damage: 88
+name: Monkey King Bar
+...
+--- !Item
+lifesteal: 0.15
+name: Morbid Mask
+...
+--- !Item
+intelligence: 25
+name: Mystic Staff
+...
+--- !Item
+intelligence: 21
+strength: 12
+name: Necronomicon (level 2)
+...
+--- !Item
+intelligence: 24
+strength: 16
+name: Necronomicon (level 3)
+...
+--- !Item
+intelligence: 15
+strength: 8
+name: Necronomicon
+...
+--- !Item
+agility: 3
+damage: 3
+intelligence: 6
+strength: 3
+name: Null Talisman
+...
+--- !Item
+attack_speed: 10
+damage: 15
+intelligence: 6
+mana_regen: 0.75
+name: Oblivion Staff
+...
+--- !Item
+strength: 10
+name: Ogre Club
+...
+--- !Item
+attack_speed: 30
+damage: 30
+intelligence: 25
+mana_regen: 1.5
+name: Orchid Malevolence
+...
+--- !Item
+damage: 10
+hp_regen: 5
+mana_regen: 1.25
+name: Perseverance
+...
+--- !Item
+damage: 24
+movement_speed: 50
+name: Phase Boots
+...
+--- !Item
+bonus_hp_regen_aura: 4
+hp_regen: 9
+spell_resistance: 0.3
+name: Pipe of Insight
+...
+--- !Item
+armor: 10
+name: Platemail
+...
+--- !Item
+health: 200
+mana: 150
+name: Point Booster
+...
+--- !Item
+agility: 6
+name: Poor Man's Shield
+...
+--- !Item
+attack_speed: 30
+movement_speed: 50
+strength: 8
+agility: 8
+intelligence: 8
+name: Power Treads
+...
+--- !Item
+attack_speed: 10
+damage: 10
+name: Quarterstaff
+...
+--- !Item
+damage: 65
+name: Radiance
+...
+--- !Item
+strength: 25
+name: Reaver
+...
+--- !Item
+attack_speed: 10
+damage: 40
+hp_regen: 5
+intelligence: 6
+mana_regen: 2.0
+name: Refresher Orb
+...
+--- !Item
+bonus_armor_aura: 2
+mana_regen_aura: 0.65
+agility: 9
+armor: 1
+damage: 9
+intelligence: 3
+strength: 3
+name: Ring of Aquila
+...
+--- !Item
+bonus_armor_aura: 2
+mana_regen_aura: 0.65
+armor: 1
+damage: 6
+name: Ring of Basilius
+...
+--- !Item
+hp_regen: 5
+name: Ring of Health
+...
+--- !Item
+armor: 3
+name: Ring of Protection
+...
+--- !Item
+hp_regen: 2
+name: Ring of Regen
+...
+--- !Item
+intelligence: 6
+name: Robe of the Magi
+...
+--- !Item
+health: 350
+intelligence: 25
+name: Rod of Atos
+...
+--- !Item
+damage: 60
+name: Sacred Relic
+...
+--- !Item
+mana_regen: 0.5
+name: Sage's Mask
+...
+--- !Item
+agility: 16
+attack_speed: 16
+damage: 16
+movement_speed_multiplier: 0.16
+strength: 16
+name: Sange and Yasha
+...
+--- !Item
+damage: 10
+strength: 16
+name: Sange
+...
+--- !Item
+armor: 5
+damage: 20
+lifesteal: 0.25
+strength: 25
+name: Satanic
+...
+--- !Item
+agility: 10
+intelligence: 35
+mana_regen: 1.5
+strength: 10
+name: Scythe of Vyse
+...
+--- !Item
+attack_speed: 30
+name: Shadow Amulet
+...
+--- !Item
+attack_speed: 30
+damage: 22
+name: Shadow Blade
+...
+--- !Item
+armor: 15
+intelligence: 30
+name: Shiva's Guard
+...
+--- !Item
+damage: 40
+strength: 6
+name: Skull Basher
+...
+--- !Item
+agility: 3
+name: Slippers of Agility
+...
+--- !Item
+hp_regen: 4
+health: 450
+mana: 400
+mana_regen: 1.0
+name: Soul Booster
+...
+--- !Item
+hp_regen: 3
+mana_regen: 0.5
+name: Soul Ring
+...
+--- !Item
+intelligence: 10
+name: Staff of Wizardry
+...
+--- !Item
+evasion: 0.25
+name: Talisman of Evasion
+...
+--- !Item
+armor: 4
+hp_regen: 12
+movement_speed: 90
+name: Tranquil Boots
+...
+--- !Item
+strength: 10
+agility: 10
+intelligence: 10
+name: Ultimate Orb
+...
+--- !Item
+mana_regen: 0.5
+strength: 6
+name: Urn of Shadows
+...
+--- !Item
+hp_regen: 6
+health: 250
+name: Vanguard
+...
+--- !Item
+strength: 6
+agility: 6
+intelligence: 6
+armor: 6
+damage: 6
+hp_regen: 6
+name: Veil of Discord
+...
+--- !Item
+health: 250
+name: Vitality Booster
+...
+--- !Item
+bonus_armor_aura: 5
+bonus_damage_aura: 0.15
+lifesteal_aura: 0.16
+mana_regen_aura: 0.8
+hp_regen: 2
+name: Vladmir's Offering
+...
+--- !Item
+mana_regen: 1.0
+name: Void Stone
+...
+--- !Item
+agility: 6
+damage: 3
+intelligence: 3
+strength: 3
+name: Wraith Band
+...
+--- !Item
+agility: 16
+attack_speed: 15
+movement_speed_multiplier: 0.1
+name: Yasha
+...

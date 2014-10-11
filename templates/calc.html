@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+            // Populate hero dropdown list.
+            $.getJSON($SCRIPT_ROOT + "/_get_heroes", function(data) {
+                $.each(data, function(index, item) {
+                    $("#hero").append(
+                        $("<option>").val(item).html(item)
+                    );
+                });
+            });
+
+            
+            // Populate items dropdown list.
+            $.getJSON($SCRIPT_ROOT + "/_get_items", function(data) {
+                $.each(data, function(index, item) {
+                    $("#items").append(
+                        $("<option>").val(item).html(item)
+                    );
+                });
+            });
+
+            var itemsChosen = [];  // variable for passing items in request
+
+            // Handle adding an item to hero's inventory.
+            $("#add").click(function() {
+                var length = $("#inventory > option").length;
+                if (length < 6) {  // can't add if already has 6 slots
+                    var item = $("#items").val();
+                    $("#inventory").append(
+                        $("<option>").val(item).html(item)
+                    );
+                    itemsChosen.push(item);
+                }
+            });
+
+            // Clear the items.
+            $("#clear").click(function() {
+                $("#inventory").empty();
+                itemsChosen = [];
+            });
+
+            // Process the request.
+            $("#submit").click(function() {
+                $.ajax({
+                    url: $SCRIPT_ROOT + "/_calculate",
+                    data: {
+                        hero: $("#hero").val(),
+                        level: $("#level").val(),
+                        items: itemsChosen
+                    },
+                    traditional: true,
+                    success: function(result) {
+                        $("#hp").text(result.hp);
+                        $("#mana").text(result.mana);
+                        $("#hp").text(result.hp);
+                        $("#mana").text(result.mana);
+                        $("#mana-regen").text(result.mana_regen.toFixed(2));
+                        $("#damage").text(result.damage);
+                        $("#armor").text(result.armor.toFixed(2));
+                        $("#movement-speed").text(result.movement_speed);
+                        $("#attack-speed").text(result.attack_speed.toFixed(2));
+                        $("#attacks-per-second").text(result.attacks_per_second.toFixed(2));
+                        $("#spell-resistance").text(result.spell_resistance.toFixed(2));
+                        $("#evasion").text(result.evasion);
+                    }
+                });
+            });
+        });
+    </script>
+    <title>Dota Calculator 0.1</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Dota Calculator 0.1</h1>
+        <div class="row">
+            <div class="col-sm-3">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="hero">Hero:</label>
+                        <select class="form-control" id="hero"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Level:</label>
+                        <input class="form-control" id="level" type="number" min="1" max="25" value="16" />
+                    </div>
+                    <div class="form-group">
+                        <label for="inventory">Items:</label>
+                        <select class="form-control" id="inventory" size="6"></select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="items"></select>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default btn-lg" id="add">
+                            <span class="glyphicon glyphicon-plus"></span> Add
+                        </button>
+                        <button type="button" class="btn btn-default btn-lg" id="clear">
+                            <span class="glyphicon glyphicon-trash"></span> Clear
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <!-- Theoretically, this button should have type="submit", but it doesn't
+                        seem to work work that way for me, so whatever. -->
+                        <button type="button" class="btn btn-primary" id="submit">Calculate</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <dl class="dl-horizontal" id="stats">
+                    <dt>Total HP</dt><dd><span id="hp"></span></dd>
+                    <dt>Total mana</dt><dd><span id="mana"></span></dd>
+                    <dt>Mana regen</dt><dd><span id="mana-regen"></span></dd>
+                    <dt>Damage</dt><dd><span id="damage"></span></dd>
+                    <dt>Armor</dt><dd><span id="armor"></span></dd>
+                    <dt>Movement speed</dt><dd><span id="movement-speed"></span></dd>
+                    <dt>Attack speed (actual)</dt><dd><span id="attack-speed"></span></dd>
+                    <dt>Attacks per second</dt><dd><span id="attacks-per-second"></span></dd>
+                    <dt>Spell resistance</dt><dd><span id="spell-resistance"></span></dd>
+                    <dt>Evasion</dt><dd><span id="evasion"></span></dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
