@@ -9,6 +9,7 @@ given different items.
 
 import math
 import operator
+import json
 import yaml
 
 
@@ -18,45 +19,41 @@ class Item(yaml.YAMLObject):
 
 
 class Hero(object):
+    """This class represents a single Dota 2 hero."""
 
-    """
-    This class represents a single Dota 2 hero.
-    """
-
-    yaml_tag = u'!Hero'
-
-    def __init__(self, name, primary_attr, base_str, base_agi, base_int,
-                 str_gain, agi_gain, int_gain, base_damage, base_armor,
-                 base_ms, base_at=1.7, base_spell_resistance=0.25,
-                 base_hp_regen=0.25):
-        self.name = name
-        self.primary_attr = primary_attr
-        self.base_str = base_str
-        self.base_agi = base_agi
-        self.base_int = base_int
-        self.str_gain = str_gain
-        self.agi_gain = agi_gain
-        self.int_gain = int_gain
-        self.base_damage = base_damage
-        self.base_armor = base_armor
-        self.base_ms = base_ms
-        self.base_at = base_at
-        self.base_spell_resistance = base_spell_resistance
-        self.base_hp_regen = base_hp_regen
+    def __init__(self, stats):
+        self.name = stats['name']
+        self.primary_attr = stats['primary_attribute']
+        self.base_str = stats['base_str']
+        self.str_gain = stats['str_gain']
+        self.base_agi = stats['base_agi']
+        self.agi_gain = stats['agi_gain']
+        self.base_int = stats['base_int']
+        self.int_gain = stats['int_gain']
+        self.damage_min = stats['damage_min']
+        self.damage_max = stats['damage_max']
+        self.base_damage = int((self.damage_min + self.damage_max) / 2)
+        self.base_armor = stats['armor']
+        self.base_speed = stats['speed']
+        self.bat = stats['bat']
+        self.spell_resistance = stats['spell_resistance'] \
+            if 'spell_resistance' in stats else 25
+        self.hp_regen = stats['hp_regen'] \
+            if 'hp_regen' in stats else 0.25
+        self._items = []
         self._level = 1
         self._attr_levels = 0
-        self._items = []
 
     def __repr__(self):
-        return '%s(name=%r, primary_attr=%r, base_str=%r, base_agi=%r, ' \
-               'base_int=%r, str_gain=%r, agi_gain=%r, int_gain=%r, ' \
-               'base_damage=%r, base_armor=%r, base_ms=%r, base_at=%r, ' \
-               'base_spell_resistance=%r, base_hp_regen=%r)' % \
+        return '%s(name=%r, primary_attribute=%r, base_str=%r, ' \
+               'str_gain=%r, base_agi=%r, agi_gain=%r, base_int=%r, ' \
+               'int_gain=%r, damage_min=%r, damage_max=%r, armor=%r, ' \
+               'speed=%r, bat=%r, spell_resistance=%r, hp_regen=%r)' % \
             (self.__class__.__name__, self.name, self.primary_attr,
-             self.base_str, self.base_agi, self.base_int,
-             self.str_gain, self.agi_gain, self.int_gain,
-             self.base_damage, self.base_armor, self.base_ms, self.base_at,
-             self.base_spell_resistance, self.base_hp_regen)
+             self.base_str, self.str_gain, self.base_agi,
+             self.agi_gain, self.base_int, self.int_gain,
+             self.damage_min, self.damage_max, self.base_armor,
+             self.base_speed, self.bat, self.spell_resistance, self.hp_regen)
 
     @property
     def level(self):
@@ -185,7 +182,7 @@ class Hero(object):
 
     def armor(self):
         """Return hero's armor from agility and item bonuses."""
-        armor = self.base_armor + self.gained_agi() * 0.14 + \
+        armor = self.base_armor + self.total_agi() * 0.14 + \
             self._from_items('armor')
         return armor
 
@@ -204,7 +201,7 @@ class Hero(object):
         based sources of bonus movement speed (e.g. multiple yashas,
         multiple drums, etc.) don't stack.
         """
-        movement_speed = self.base_ms + \
+        movement_speed = self.base_speed + \
             self._from_items_max('movement_speed')
         ms_multiplier = 1 + self._from_items('movement_speed_multiplier')
         # TODO: add handling of Drums ms bonus
@@ -226,11 +223,11 @@ class Hero(object):
         Essentially this is what attack speed means: it tells
         how much time does it take to perform one autoattack.
         """
-        return self.base_at / (1 + self.ias() / 100)
+        return self.bat / (1 + self.ias() / 100)
 
     def attacks_per_second(self):
         """Return hero's number of attacks per second."""
-        return (1 + self.ias() / 100) / self.base_at
+        return (1 + self.ias() / 100) / self.bat
 
     def spell_resistance(self):
         """Return hero's spell resistance.
@@ -241,7 +238,7 @@ class Hero(object):
         Visage and Meepo) and spell resistance from items are taken
         into account.
         """
-        return 1 - (1 - self.base_spell_resistance) * \
+        return 1 - (1 - self.spell_resistance) * \
             self._from_items_mul('spell_resistance')
 
     def evasion(self):
@@ -276,13 +273,8 @@ class Hero(object):
         del self._items[:]
 
 
-def hero_constructor(loader, node):
-    fields = loader.construct_mapping(node)
-    return Hero(**fields)
-
-yaml.add_constructor(u'!Hero', hero_constructor)
-
-heroes = [hero for hero in yaml.load_all(file('heroes.yml', 'r'))]
+with open('heroes.json', 'r') as f:
+    heroes = [Hero(hero) for hero in json.load(f)]
 items = [item for item in yaml.load_all(file('items.yml', 'r'))]
 
 
